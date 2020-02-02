@@ -19,3 +19,12 @@ brew install ruby
 
 brew cleanup
 brew list
+
+#install oh my zsh
+
+#cocoapods setup
+
+# export GEM_HOME=$HOME/.gem/ruby/2.3.0
+# export PATH=$GEM_HOME/bin:$PATH
+
+#gem install cocoapods --user-install
