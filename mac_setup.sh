@@ -9,7 +9,6 @@ brew install git
 brew cask install iterm2
 brew install zsh
 brew cask install slack
-brew cask install spotify
 brew cask install visual-studio-code
 brew cask install postman
 brew cask install firefox
