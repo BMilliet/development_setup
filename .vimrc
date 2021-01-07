@@ -10,7 +10,7 @@ set smartindent
 set nowrap
 
 set shortmess+=c
-set completeopt=menuone,longest
+"set completeopt=menuone,longest
 "set complete+=k~/.vim/autocomplete/autocomplete.txt
 
 set tabstop=2 softtabstop=2
@@ -24,22 +24,33 @@ set hlsearch
 
 set colorcolumn=100
 
+" Window movement
 let mapleader = ' '
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
+nnoremap <leader><left> :wincmd h<CR>
+nnoremap <leader><up> :wincmd j<CR>
+nnoremap <leader><down> :wincmd k<CR>
+nnoremap <leader><right> :wincmd l<CR>
+
+" Auto complete menu
 inoremap <expr> <Down> pumvisible() ? "<C-n>" : "<Down>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
+" Auto close
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
+
+" Project search
+command -nargs=1 PS vimgrep /<args>/g **/* | cope
 
 " Minimalist-TabComplete-Plugin
 inoremap <expr> <Tab> TabComplete()
