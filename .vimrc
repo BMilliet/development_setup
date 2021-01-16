@@ -8,6 +8,8 @@ set number
 set relativenumber
 set smartindent
 set nowrap
+set signcolumn=yes
+set scrolloff=10
 
 set shortmess+=c
 "set completeopt=menuone,longest
@@ -59,6 +61,14 @@ au ColorScheme * highlight ExtraWhitespace guibg=red
 au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
+" Trim empty spaces
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
 
 " Minimalist-TabComplete-Plugin
 inoremap <expr> <Tab> TabComplete()
