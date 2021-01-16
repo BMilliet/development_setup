@@ -98,3 +98,5 @@ endfun
 
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.git$', '\.DS_Store$']
+nnoremap <Leader>pt :NERDTreeToggle<Enter>
+nnoremap <silent> <Leader>pv :NERDTreeFind<CR>
