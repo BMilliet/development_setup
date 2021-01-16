@@ -13,8 +13,8 @@ set shortmess+=c
 "set completeopt=menuone,longest
 "set complete+=k~/.vim/autocomplete/autocomplete.txt
 
-set tabstop=2 softtabstop=2
-set shiftwidth=2
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set backspace=2
 
 filetype plugin indent on
@@ -23,6 +23,7 @@ set incsearch
 set hlsearch
 
 set colorcolumn=100
+set wildignore=*/.buckd/*,*/buck-ou/*,*/.git/*,*/.github/*,*/buckjavaargs/*,*/Pods/*,*/*.lock/*,*/.DS_Store/*,*/__pycache__/*
 
 " Window movement
 let mapleader = ' '
@@ -51,6 +52,13 @@ inoremap { {}<left>
 
 " Project search
 command -nargs=1 PS vimgrep /<args>/g **/* | cope
+
+" Highlight empty spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 " Minimalist-TabComplete-Plugin
 inoremap <expr> <Tab> TabComplete()
